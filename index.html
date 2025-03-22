@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pokemon.css" />
+    <script src="logica_pokemon.js" defer></script>
+    <title>Escolha mais importante das menos importantes</title>
+</head>
+
+<body>
+    <!-- Tela de escolha -->
+    <div class="container" id="container">
+        <header>
+            <h1>Esta é a MAIOR escolha que fará na sua vida!!!</h1>
+            <p>Escolha um Pokémon para iniciar a sua jornada!</p>
+        </header>
+        <section id="maior_escolha">
+            <div class="card_pokemon" onclick="escolhaPokemon(charmander)">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif" alt="Charmander"
+                    id="charmander_normal">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/charmander.gif" alt="Charmander"
+                    id="charmander_shiny">
+                <p>Charmander</p>
+            </div>
+            <div class="card_pokemon" onclick="escolhaPokemon(squirtle)">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif" alt="Squirtle"
+                    id="squirtle_normal">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/squirtle.gif" alt="Squirtle"
+                    id="squirtle_shiny">
+                <p>Squirtle</p>
+            </div>
+            <div class="card_pokemon" onclick="escolhaPokemon(bulbasaur)">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur"
+                    id="bulbasaur_normal">
+                <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/bulbasaur.gif" alt="Bulbasaur"
+                    id="bulbasaur_shiny">
+                <p>Bulbasaur</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Tela de batalha -->
+    <div class="battle" id="battle_simulator" style="display: none;">
+        <!-- Enemy no topo (espelhado) -->
+        <section class="enemy">
+            <!-- Barra de vida do enemy (80%) -->
+            <div class="conteiner_lifebar_enemy">
+                <div class="vida_dinamica_enemy"></div>
+                <p id="quantidade_vida_enemy">-- / --</p>
+            </div>
+            <!-- Card do Pokémon do enemy (20%) -->
+            <div class="card_pokemon_rival">
+                <!-- Conteúdo injetado via JS -->
+            </div>
+        </section>
+
+        <br>
+
+        <!-- Player embaixo -->
+        <section class="player">
+            <!-- Modal de status do player (abre ao clicar no card) -->
+            <div id="modal_status" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modal_nome"></h2>
+                    <img id="modal_sprite" src="" alt="">
+                    <p><strong>HP:</strong> <span id="modal_hp"></span></p>
+                    <p><strong>Attack:</strong> <span id="modal_attack"></span></p>
+                    <p><strong>Defense:</strong> <span id="modal_defense"></span></p>
+                    <p><strong>Sp. Attack:</strong> <span id="modal_spAttack"></span></p>
+                    <p><strong>Sp. Defense:</strong> <span id="modal_spDefense"></span></p>
+                    <p><strong>Speed:</strong> <span id="modal_speed"></span></p>
+                    <h3>Moves</h3>
+                    <ul id="modal_moves"></ul>
+                </div>
+            </div>
+
+            <!-- Card do Pokémon do player (20%) -->
+            <div class="card_pokemon_escolhido" id="abrir_status_pokemon">
+                <!-- Conteúdo injetado via JS -->
+            </div>
+
+            <!-- Barra de vida + moves (80%) -->
+            <div class="status-container">
+                <div class="conteiner_lifebar_player">
+                    <div class="vida_dinamica"></div>
+                    <p id="quantidade_vida_player">-- / --</p>
+                </div>
+                <div class="moves">
+                    <!-- Movimentos injetados via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Canvas para a animação de fogo (sobreposto) -->
+        <canvas id="fireProjectile"
+            style="position: absolute; top: 0; left: 0; pointer-events: none; display: none;"></canvas>
+
+    </div>
+</body>
+
+</html>
